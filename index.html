@@ -7,14 +7,24 @@
   <title>教材ライブラリ</title>
 
   <style>
+    :root {
+      --background: #f5f7fa;
+      --surface: #ffffff;
+      --text: #202630;
+      --muted: #667080;
+      --border: #dfe4ea;
+      --accent: #2563eb;
+      --accent-dark: #1d4ed8;
+    }
+
     * {
       box-sizing: border-box;
     }
 
     body {
       margin: 0;
-      background: #f5f7fa;
-      color: #202630;
+      background: var(--background);
+      color: var(--text);
       font-family:
         -apple-system,
         BlinkMacSystemFont,
@@ -27,77 +37,135 @@
     }
 
     header {
-      padding: 64px 20px;
-      background: #ffffff;
-      border-bottom: 1px solid #dfe4ea;
+      padding: 64px 20px 48px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
       text-align: center;
     }
 
     header h1 {
       margin: 0 0 12px;
-      font-size: 2.5rem;
+      font-size: clamp(2rem, 5vw, 3rem);
     }
 
     header p {
       margin: 0;
-      color: #667080;
+      color: var(--muted);
     }
 
-    main {
-      width: min(900px, calc(100% - 32px));
-      margin: 40px auto;
+    .container {
+      width: min(1000px, calc(100% - 32px));
+      margin: 0 auto;
     }
 
-    section {
-      margin-bottom: 24px;
-      padding: 28px;
-      background: #ffffff;
-      border: 1px solid #dfe4ea;
+    .search-area {
+      margin: 32px 0 24px;
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 12px;
     }
 
-    h2 {
-      margin-top: 0;
-      font-size: 1.4rem;
+    .search-area label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 700;
     }
 
-    .material {
-      padding: 18px 0;
-      border-top: 1px solid #e5e9ee;
+    .search-area input {
+      width: 100%;
+      padding: 13px 15px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font: inherit;
     }
 
-    .material:first-of-type {
-      border-top: none;
+    .search-area input:focus {
+      border-color: var(--accent);
+      outline: 3px solid rgba(37, 99, 235, 0.12);
     }
 
-    .material h3 {
-      margin: 0 0 4px;
+    .category-section {
+      margin-bottom: 28px;
+      padding: 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
     }
 
-    .material p {
-      margin: 0;
-      color: #667080;
+    .category-section h2 {
+      margin: 0 0 18px;
+      font-size: 1.5rem;
     }
 
-   .status {
-  display: inline-block;
-  margin-top: 14px;
-  padding: 8px 16px;
-  background: #2563eb;
-  border-radius: 8px;
-  color: #ffffff;
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-decoration: none;
-}
+    .materials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 16px;
+    }
 
-.status:hover {
-  background: #1d4ed8;
-}
+    .material-card {
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #ffffff;
+    }
+
+    .material-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+    }
+
+    .description {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .metadata {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 16px;
+    }
+
+    .tag {
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: #edf2f7;
+      color: #53606e;
+      font-size: 0.78rem;
+    }
+
+    .pdf-button {
+      display: inline-block;
+      padding: 8px 16px;
+      background: var(--accent);
+      border-radius: 8px;
+      color: #ffffff;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .pdf-button:hover {
+      background: var(--accent-dark);
+    }
+
+    .no-results {
+      margin: 32px 0;
+      padding: 32px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--muted);
+      text-align: center;
+    }
 
     footer {
+      margin-top: 56px;
       padding: 28px 20px;
-      background: #202630;
+      background: var(--text);
       color: #dce2e8;
       text-align: center;
       font-size: 0.85rem;
@@ -105,15 +173,15 @@
 
     @media (max-width: 600px) {
       header {
-        padding: 44px 20px;
+        padding: 44px 20px 36px;
       }
 
-      header h1 {
-        font-size: 2rem;
-      }
-
-      section {
+      .category-section {
         padding: 20px;
+      }
+
+      .materials-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -125,48 +193,140 @@
     <p>大学数学・試験対策・個別指導用の自作教材を公開しています。</p>
   </header>
 
-  <main>
-    <section>
-      <h2>このサイトについて</h2>
-      <p>
-        自作した講義資料、問題集、試験対策資料などを、
-        科目別に整理して掲載するためのサイトです。
-      </p>
-    </section>
+  <main class="container">
+    <div class="search-area">
+      <label for="searchInput">教材を検索</label>
+      <input
+        id="searchInput"
+        type="search"
+        placeholder="例：線形代数、大学1年、対角化"
+        autocomplete="off"
+      >
+    </div>
 
-    <section>
-      <h2>大学数学</h2>
+    <div id="materialsContainer"></div>
 
-      <div class="material">
-        <h3>線形代数入門</h3>
-        <p>
-          行列、連立一次方程式、行列式、線形写像、
-          固有値・対角化などを扱います。
-        </p>
-      <a
-  class="status"
-  href="pdf/university-math/linear-algebra-introduction.pdf"
-  target="_blank"
-  rel="noopener"
->
-  PDFを開く
-</a>
-      </div>
-    </section>
-
-    <section>
-      <h2>大学試験対策</h2>
-      <p>資料を順次掲載する予定です。</p>
-    </section>
-
-    <section>
-      <h2>個別指導用教材</h2>
-      <p>資料を順次掲載する予定です。</p>
-    </section>
+    <p id="noResults" class="no-results" hidden>
+      条件に一致する教材がありません。
+    </p>
   </main>
 
   <footer>
     <p>© 2026 教材ライブラリ</p>
   </footer>
+
+  <script src="materials.js"></script>
+
+  <script>
+    const materialsContainer =
+      document.getElementById("materialsContainer");
+
+    const searchInput =
+      document.getElementById("searchInput");
+
+    const noResults =
+      document.getElementById("noResults");
+
+    function formatDate(dateString) {
+      const date = new Date(dateString);
+
+      return new Intl.DateTimeFormat("ja-JP", {
+        year: "numeric",
+        month: "numeric",
+        day: "numeric"
+      }).format(date);
+    }
+
+    function createMaterialCard(material) {
+      return `
+        <article class="material-card">
+          <h3>${material.title}</h3>
+
+          <p class="description">
+            ${material.description}
+          </p>
+
+          <div class="metadata">
+            <span class="tag">${material.subject}</span>
+            <span class="tag">${material.level}</span>
+            <span class="tag">${material.pages}ページ</span>
+            <span class="tag">
+              更新：${formatDate(material.updated)}
+            </span>
+          </div>
+
+          <a
+            class="pdf-button"
+            href="${material.file}"
+            target="_blank"
+            rel="noopener"
+          >
+            PDFを開く
+          </a>
+        </article>
+      `;
+    }
+
+    function renderMaterials(keyword = "") {
+      const normalizedKeyword =
+        keyword.trim().toLowerCase();
+
+      const filteredMaterials = materials.filter((material) => {
+        const searchableText = [
+          material.title,
+          material.category,
+          material.subject,
+          material.level,
+          material.description
+        ]
+          .join(" ")
+          .toLowerCase();
+
+        return searchableText.includes(normalizedKeyword);
+      });
+
+      materialsContainer.innerHTML = "";
+
+      const categories = [
+        ...new Set(
+          filteredMaterials.map(
+            (material) => material.category
+          )
+        )
+      ];
+
+      categories.forEach((category) => {
+        const categoryMaterials =
+          filteredMaterials.filter(
+            (material) => material.category === category
+          );
+
+        const section =
+          document.createElement("section");
+
+        section.className = "category-section";
+
+        section.innerHTML = `
+          <h2>${category}</h2>
+
+          <div class="materials-grid">
+            ${categoryMaterials
+              .map(createMaterialCard)
+              .join("")}
+          </div>
+        `;
+
+        materialsContainer.appendChild(section);
+      });
+
+      noResults.hidden = filteredMaterials.length !== 0;
+    }
+
+    searchInput.addEventListener("input", () => {
+      renderMaterials(searchInput.value);
+    });
+
+    renderMaterials();
+  </script>
 </body>
 </html>
