@@ -227,16 +227,19 @@
     const noResults =
       document.getElementById("noResults");
 
-    function formatDate(dateString) {
-      const date = new Date(dateString);
+   function formatDate(dateString) {
+  const parts = dateString.split("-");
 
-      return new Intl.DateTimeFormat("ja-JP", {
-        year: "numeric",
-        month: "numeric",
-        day: "numeric"
-      }).format(date);
-    }
+  const year = Number(parts[0]);
+  const month = Number(parts[1]);
+  const day = parts[2] ? Number(parts[2]) : null;
 
+  if (day === null) {
+    return `${year}年${month}月`;
+  }
+
+  return `${year}年${month}月${day}日`;
+}
     function createMaterialCard(material) {
       return `
         <article class="material-card">
