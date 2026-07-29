@@ -256,41 +256,45 @@ main {
 
 /* PDFリンク */
 
-.pdf-list {
+.pdf-entry-list {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 10px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+.pdf-entry {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+}
+
+.pdf-entry-label {
+  min-width: 92px;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
 .pdf-link {
   display: inline-block;
-  padding: 8px 14px;
-  border: 1px solid #cbd5e1;
+  padding: 8px 16px;
+  border: 1px solid var(--accent);
   border-radius: 8px;
-  background: var(--surface-soft);
-  color: #334155;
-  font-size: 0.9rem;
-  font-weight: 700;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
   text-decoration: none;
 }
 
 .pdf-link:hover {
-  border-color: var(--accent);
-  background: #eff6ff;
-  color: var(--accent-dark);
-}
-
-.pdf-link.primary {
-  border-color: var(--accent);
-  background: var(--accent);
-  color: #ffffff;
-}
-
-.pdf-link.primary:hover {
   background: var(--accent-dark);
+  border-color: var(--accent-dark);
 }
 
 .password-note {
@@ -388,13 +392,12 @@ footer a:hover {
     font-size: 1.45rem;
   }
 
-  .pdf-list {
-    display: grid;
-    grid-template-columns: 1fr;
+  .pdf-entry {
+    align-items: flex-start;
   }
 
-  .pdf-link {
+  .pdf-entry-label {
+    min-width: auto;
     width: 100%;
-    text-align: center;
   }
 }
