@@ -106,12 +106,20 @@ main {
 }
 
 .whats-new-heading {
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .whats-new-heading h2 {
+  display: inline-block;
   margin: 0;
-  font-size: 1.45rem;
+  padding: 7px 16px;
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  background: #eff6ff;
+  color: var(--accent-dark);
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1.4;
 }
 
 .news-list {
@@ -360,6 +368,11 @@ footer a:hover {
 
   .whats-new {
     padding: 20px;
+  }
+
+  .whats-new-heading h2 {
+    padding: 6px 14px;
+    font-size: 1rem;
   }
 
   .news-item {
