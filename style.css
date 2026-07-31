@@ -17,6 +17,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 24px;
 }
 
 body {
@@ -216,6 +217,49 @@ a {
   border-left: 2px solid var(--border);
 }
 
+/* ページ上部へ戻るボタン */
+
+.back-to-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 900;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-width: 72px;
+  height: 42px;
+  padding: 0 14px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.95);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  box-shadow: 0 7px 20px rgba(37, 99, 235, 0.24);
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.18s ease,
+    visibility 0.18s ease,
+    transform 0.18s ease,
+    background 0.18s ease;
+}
+
+.back-to-top.is-visible {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--accent-dark);
+}
+
 /* ヘッダー */
 
 .site-header {
@@ -401,6 +445,68 @@ main {
   font-weight: 800;
 }
 
+/* ページ内目次 */
+
+.page-toc {
+  margin-bottom: 28px;
+  padding: 22px 24px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.page-toc-heading {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+}
+
+.page-toc-heading span[lang="en"] {
+  margin-left: 5px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.page-toc-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.page-toc-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  background: var(--surface-soft);
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    border-color 0.16s ease,
+    background 0.16s ease,
+    color 0.16s ease;
+}
+
+.page-toc-link::before {
+  content: "↓";
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.page-toc-link:hover {
+  border-color: var(--accent);
+  background: #eff6ff;
+  color: var(--accent-dark);
+}
+
 /* 分類ページ */
 
 .page-section {
@@ -410,6 +516,7 @@ main {
   border-radius: 16px;
   background: var(--surface);
   box-shadow: var(--shadow);
+  scroll-margin-top: 24px;
 }
 
 .subject-heading {
@@ -811,6 +918,15 @@ footer a:hover {
     height: 42px;
   }
 
+  .back-to-top {
+    right: 14px;
+    bottom: 14px;
+    min-width: 64px;
+    height: 38px;
+    padding: 0 12px;
+    font-size: 0.7rem;
+  }
+
   .site-header {
     padding: 72px 20px 36px;
   }
@@ -835,6 +951,19 @@ footer a:hover {
   .news-item {
     grid-template-columns: 1fr;
     gap: 5px;
+  }
+
+  .page-toc {
+    padding: 18px;
+  }
+
+  .page-toc-list {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .page-toc-link {
+    justify-content: center;
   }
 
   .page-section {
