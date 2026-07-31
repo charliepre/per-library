@@ -644,9 +644,9 @@ main {
   font-style: italic;
 }
 
-/* フォーム案内 */
+/* 誤り・不具合報告ページ */
 
-.form-placeholder {
+.report-section {
   padding: 36px;
   border: 1px solid var(--border);
   border-radius: 16px;
@@ -655,26 +655,98 @@ main {
   text-align: center;
 }
 
-.form-placeholder h2 {
-  margin: 0 0 12px;
+.report-section-label {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
 }
 
-.form-placeholder p {
-  max-width: 620px;
-  margin: 0 auto;
+.report-section h2 {
+  margin: 0 0 18px;
+  font-size: 1.65rem;
+}
+
+.report-section > p:not(.report-section-label):not(.external-link-note) {
+  max-width: 720px;
+  margin: 0 auto 14px;
   color: var(--muted);
 }
 
-.coming-soon-label {
-  display: inline-block;
-  margin-bottom: 18px;
-  padding: 6px 13px;
+.report-guidance {
+  max-width: 720px;
+  margin: 28px auto;
+  padding: 22px 24px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-soft);
+  text-align: left;
+}
+
+.report-guidance h3 {
+  margin: 0;
+  font-size: 1.08rem;
+}
+
+.report-guidance > p {
+  margin: 2px 0 12px;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.report-guidance ul {
+  margin: 10px 0 0;
+  padding-left: 1.4rem;
+}
+
+.report-guidance ul[lang="en"] {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.report-form-button {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: min(340px, 100%);
+  padding: 13px 24px;
   border: 1px solid var(--accent);
-  border-radius: 999px;
-  background: #eff6ff;
-  color: var(--accent-dark);
-  font-size: 0.8rem;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #ffffff;
   font-weight: 800;
+  line-height: 1.4;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+  transition:
+    background 0.16s ease,
+    border-color 0.16s ease,
+    transform 0.16s ease,
+    box-shadow 0.16s ease;
+}
+
+.report-form-button:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-dark);
+  background: var(--accent-dark);
+  box-shadow: 0 11px 24px rgba(37, 99, 235, 0.26);
+}
+
+.report-form-button span[lang="en"] {
+  margin-top: 2px;
+  font-size: 0.77rem;
+  letter-spacing: 0.06em;
+}
+
+.external-link-note {
+  margin: 13px 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
 }
 
 /* 空の分類 */
@@ -799,7 +871,20 @@ footer a:hover {
     font-size: 1.25rem;
   }
 
-  .form-placeholder {
+  .report-section {
     padding: 28px 20px;
+  }
+
+  .report-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .report-guidance {
+    padding: 18px;
+  }
+
+  .report-form-button {
+    width: 100%;
+    min-width: 0;
   }
 }
