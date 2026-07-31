@@ -93,7 +93,9 @@ document.addEventListener("DOMContentLoaded", () => {
               <li>
                 <a class="menu-link" href="articles.html">
                   <span class="menu-link-ja">記事</span>
-                  <span class="menu-link-en" lang="en">Articles</span>
+                  <span class="menu-link-en" lang="en">
+                    Articles
+                  </span>
                 </a>
               </li>
 
@@ -102,6 +104,20 @@ document.addEventListener("DOMContentLoaded", () => {
                   <span class="menu-link-ja">誤り・不具合の報告</span>
                   <span class="menu-link-en" lang="en">
                     Report an Error
+                  </span>
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="menu-link"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSfJtetd91NfX0sw1dP5c3P8WTz5PFXRi6AaN68H62apZUU_UQ/viewform?usp=publish-editor"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <span class="menu-link-ja">報告フォームを直接開く</span>
+                  <span class="menu-link-en" lang="en">
+                    Open the Report Form
                   </span>
                 </a>
               </li>
@@ -161,7 +177,10 @@ document.addEventListener("DOMContentLoaded", () => {
   overlay.addEventListener("click", closeMenu);
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && sideMenu.classList.contains("is-open")) {
+    if (
+      event.key === "Escape" &&
+      sideMenu.classList.contains("is-open")
+    ) {
       closeMenu();
     }
   });
