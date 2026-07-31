@@ -115,7 +115,10 @@ document.addEventListener("DOMContentLoaded", () => {
                   target="_blank"
                   rel="noopener"
                 >
-                  <span class="menu-link-ja">報告フォームを直接開く</span>
+                  <span class="menu-link-ja">
+                    報告フォームを直接開く
+                  </span>
+
                   <span class="menu-link-en" lang="en">
                     Open the Report Form
                   </span>
@@ -135,6 +138,15 @@ document.addEventListener("DOMContentLoaded", () => {
         </ul>
       </nav>
     </aside>
+
+    <button
+      class="back-to-top"
+      type="button"
+      aria-label="ページ上部へ戻る"
+    >
+      <span aria-hidden="true">↑</span>
+      <span>TOP</span>
+    </button>
   `;
 
   document.body.insertAdjacentHTML("afterbegin", menuMarkup);
@@ -143,8 +155,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeButton = document.querySelector(".menu-close-button");
   const sideMenu = document.querySelector(".side-menu");
   const overlay = document.querySelector(".menu-overlay");
+  const backToTopButton = document.querySelector(".back-to-top");
 
-  if (!menuButton || !closeButton || !sideMenu || !overlay) {
+  if (
+    !menuButton ||
+    !closeButton ||
+    !sideMenu ||
+    !overlay ||
+    !backToTopButton
+  ) {
     return;
   }
 
@@ -172,6 +191,14 @@ document.addEventListener("DOMContentLoaded", () => {
     menuButton.focus();
   };
 
+  const updateBackToTopButton = () => {
+    if (window.scrollY > 400) {
+      backToTopButton.classList.add("is-visible");
+    } else {
+      backToTopButton.classList.remove("is-visible");
+    }
+  };
+
   menuButton.addEventListener("click", openMenu);
   closeButton.addEventListener("click", closeMenu);
   overlay.addEventListener("click", closeMenu);
@@ -192,4 +219,17 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.remove("menu-open");
     });
   });
+
+  backToTopButton.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+
+  window.addEventListener("scroll", updateBackToTopButton, {
+    passive: true
+  });
+
+  updateBackToTopButton();
 });
