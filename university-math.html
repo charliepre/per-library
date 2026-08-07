@@ -7,6 +7,7 @@
   <title>大学数学｜Charlie's Educational Materials</title>
 
   <link rel="stylesheet" href="style.css">
+  <script src="menu.js" defer></script>
 </head>
 
 <body>
@@ -16,10 +17,11 @@
     <h1>大学数学</h1>
 
     <p class="lead">
-      大学数学に関する自作教材を掲載しています。
+      大学数学および関連分野に関する自作教材を掲載しています。
       <br>
       <span lang="en">
-        Original educational materials on university mathematics are available here.
+        Original educational materials on university mathematics
+        and related fields are available here.
       </span>
     </p>
   </header>
@@ -29,7 +31,29 @@
       ← トップページへ戻る / Back to Home
     </a>
 
-    <section class="page-section">
+    <nav class="page-toc" aria-label="ページ内目次">
+      <h2 class="page-toc-heading">
+        目次
+        <span lang="en">Contents</span>
+      </h2>
+
+      <ul class="page-toc-list">
+        <li>
+          <a class="page-toc-link" href="#linear-algebra">
+            線形代数
+          </a>
+        </li>
+
+        <li>
+          <a class="page-toc-link" href="#microeconomics">
+            ミクロ経済学
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- 線形代数 -->
+    <section id="linear-algebra" class="page-section">
       <h2 class="subject-heading">線形代数</h2>
 
       <div class="resource-group">
@@ -45,6 +69,60 @@
             <a
               class="pdf-link"
               href="pdf/university-math/linear-algebra/linear-algebra-introduction.pdf"
+              target="_blank"
+              rel="noopener"
+            >
+              OPEN
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="resource-group">
+        <h3>線形代数演習問題</h3>
+
+        <ul class="pdf-entry-list">
+          <li class="pdf-entry">
+            <span class="pdf-entry-label">問題</span>
+
+            <a
+              class="pdf-link"
+              href="pdf/university-math/linear-algebra/linear-algebra-exercises.pdf"
+              target="_blank"
+              rel="noopener"
+            >
+              OPEN
+            </a>
+          </li>
+
+          <li class="pdf-entry">
+            <span class="pdf-entry-label">解答</span>
+
+            <a
+              class="pdf-link"
+              href="pdf/university-math/linear-algebra/linear-algebra-exercises-answers.pdf"
+              target="_blank"
+              rel="noopener"
+            >
+              OPEN
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ミクロ経済学 -->
+    <section id="microeconomics" class="page-section">
+      <h2 class="subject-heading">ミクロ経済学</h2>
+
+      <div class="resource-group">
+        <h3>社会的選択理論の導入</h3>
+
+        <ul class="pdf-entry-list">
+          <li class="pdf-entry">
+            <a
+              class="pdf-link"
+              href="pdf/university-math/microeconomics/introduction-to-social-choice-theory.pdf"
               target="_blank"
               rel="noopener"
             >
