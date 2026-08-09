@@ -45,7 +45,9 @@ document.addEventListener("DOMContentLoaded", () => {
           <li>
             <a class="menu-link" href="index.html">
               <span class="menu-link-ja">ホーム</span>
-              <span class="menu-link-en" lang="en">Home</span>
+              <span class="menu-link-en" lang="en">
+                Home
+              </span>
             </a>
           </li>
 
@@ -56,8 +58,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <ul class="menu-sublist">
               <li>
-                <a class="menu-link" href="university-entrance-exam.html">
-                  <span class="menu-link-ja">大学受験関連</span>
+                <a
+                  class="menu-link"
+                  href="university-entrance-exam.html"
+                >
+                  <span class="menu-link-ja">
+                    大学受験関連
+                  </span>
+
                   <span class="menu-link-en" lang="en">
                     University Entrance Examination
                   </span>
@@ -65,8 +73,14 @@ document.addEventListener("DOMContentLoaded", () => {
               </li>
 
               <li>
-                <a class="menu-link" href="university-math.html">
-                  <span class="menu-link-ja">大学数学</span>
+                <a
+                  class="menu-link"
+                  href="university-math.html"
+                >
+                  <span class="menu-link-ja">
+                    大学数学
+                  </span>
+
                   <span class="menu-link-en" lang="en">
                     University Mathematics
                   </span>
@@ -74,10 +88,31 @@ document.addEventListener("DOMContentLoaded", () => {
               </li>
 
               <li>
-                <a class="menu-link" href="other.html">
-                  <span class="menu-link-ja">その他</span>
+                <a
+                  class="menu-link"
+                  href="other.html"
+                >
+                  <span class="menu-link-ja">
+                    その他
+                  </span>
+
                   <span class="menu-link-en" lang="en">
                     Other Materials
+                  </span>
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="menu-link"
+                  href="content-status.html"
+                >
+                  <span class="menu-link-ja">
+                    コンテンツ状況
+                  </span>
+
+                  <span class="menu-link-en" lang="en">
+                    Content Status
                   </span>
                 </a>
               </li>
@@ -91,8 +126,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <ul class="menu-sublist">
               <li>
-                <a class="menu-link" href="articles.html">
-                  <span class="menu-link-ja">記事</span>
+                <a
+                  class="menu-link"
+                  href="articles.html"
+                >
+                  <span class="menu-link-ja">
+                    記事
+                  </span>
+
                   <span class="menu-link-en" lang="en">
                     Articles
                   </span>
@@ -100,8 +141,14 @@ document.addEventListener("DOMContentLoaded", () => {
               </li>
 
               <li>
-                <a class="menu-link" href="report-error.html">
-                  <span class="menu-link-ja">誤り・不具合の報告</span>
+                <a
+                  class="menu-link"
+                  href="report-error.html"
+                >
+                  <span class="menu-link-ja">
+                    誤り・不具合の報告
+                  </span>
+
                   <span class="menu-link-en" lang="en">
                     Report an Error
                   </span>
@@ -128,8 +175,14 @@ document.addEventListener("DOMContentLoaded", () => {
           </li>
 
           <li>
-            <a class="menu-link" href="terms.html">
-              <span class="menu-link-ja">著作権・利用条件</span>
+            <a
+              class="menu-link"
+              href="terms.html"
+            >
+              <span class="menu-link-ja">
+                著作権・利用条件
+              </span>
+
               <span class="menu-link-en" lang="en">
                 Copyright and Terms of Use
               </span>
@@ -227,9 +280,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  window.addEventListener("scroll", updateBackToTopButton, {
-    passive: true
-  });
+  window.addEventListener(
+    "scroll",
+    updateBackToTopButton,
+    {
+      passive: true
+    }
+  );
 
   updateBackToTopButton();
 });
