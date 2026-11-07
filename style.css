@@ -639,6 +639,25 @@ main {
   transform: translateY(-1px);
 }
 
+/* 数学 exercise 専用の整列 */
+.exercise-list .pdf-entry {
+  display: grid;
+  grid-template-columns: 48px 58px;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.exercise-list .pdf-entry-label {
+  width: 48px;
+  text-align: right;
+}
+
+.exercise-list .pdf-link {
+  width: 58px;
+  min-width: 58px;
+  box-sizing: border-box;
+}
+
 .password-note {
   margin: 10px 0 0;
   color: #8a5a00;
